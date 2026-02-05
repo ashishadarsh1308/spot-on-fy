@@ -34,7 +34,8 @@ async function register(req, res) {
         const savedUser = await user.save();
 
         const token = jwt.sign({
-            id: user._id, role: user.role
+            id: user._id,
+            role: user.role
         }, process.env.JWT_SECRET);
 
         res.cookie('token', token);
